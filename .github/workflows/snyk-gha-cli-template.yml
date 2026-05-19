@@ -39,7 +39,3 @@ jobs:
       - name: Run Snyk Container Test
         run: snyk container ${{ inputs.flags_iac }}
         continue-on-error: true
-
-      - name: Run Snyk Container Test
-        run: snyk container
-        continue-on-error: true
