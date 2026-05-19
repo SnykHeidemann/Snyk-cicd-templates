@@ -29,11 +29,15 @@ jobs:
           snyk auth $SNYK_TOKEN --auth-type=token
     
       - name: Run Snyk Code Test
-        run: snyk code test
+        run: snyk code test ${{ inputs.flags_code }}
         continue-on-error: true
 
       - name: Run Snyk Open Source Test
-        run: snyk test ${{ inputs.flag }}
+        run: snyk test ${{ inputs.flags_test }}
+        continue-on-error: true
+
+      - name: Run Snyk Container Test
+        run: snyk container ${{ inputs.flags_iac }}
         continue-on-error: true
 
       - name: Run Snyk Container Test
