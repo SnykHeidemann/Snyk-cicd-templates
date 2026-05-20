@@ -3,13 +3,18 @@ name: Template Workflow
 on: 
     workflow_call:
       inputs:
-        flag:
+        flag_code:
+          required: false
+          type: string
+        flag_test:
+          required: false
+          type: string
+        flag_iac:
           required: false
           type: string
       secrets:
         SNYK_TOKEN:
           required: true
-
 jobs:
   Setup-and-run-snyk:
     runs-on: ubuntu-latest
@@ -29,13 +34,13 @@ jobs:
           snyk auth $SNYK_TOKEN --auth-type=token
     
       - name: Run Snyk Code Test
-        run: snyk code test ${{ inputs.flag.code }}
+        run: snyk code test ${{ inputs.flag_code }}
         continue-on-error: true
 
       - name: Run Snyk Open Source Test
-        run: snyk test ${{ inputs.flag.test }}
+        run: snyk test ${{ inputs.flag_test }}
         continue-on-error: true
 
       - name: Run Snyk Container Test
-        run: snyk container ${{ inputs.flag.iac }}
+        run: snyk container ${{ inputs.flag_iac }}
         continue-on-error: true
