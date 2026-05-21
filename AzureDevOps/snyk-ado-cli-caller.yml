@@ -31,5 +31,6 @@ jobs:
   # Reference the reusable Snyk template
   - template: snyk-ado-cli-template.yml  # Reference the reusable template
     parameters:
-      SNYK_TOKEN: $(SNYK_TOKEN)  # Pass the SNYK_TOKEN from the variable group
-      SNYK_FLAGS: '' # Pass custom snyk CLI flags
+      SNYK_TOKEN: $(SNYK_TOKEN) # Pass the SNYK_TOKEN from the variable group
+      # SNYK_FLAGS_TEST: '' # Overriding the default
+      # SNYK_FLAGS_CODETEST: '' # Overriding the default
