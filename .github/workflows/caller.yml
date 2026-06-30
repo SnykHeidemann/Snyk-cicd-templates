@@ -6,6 +6,6 @@ jobs:
   calling-workflow:
     uses: SnykHeidemann/Snyk-cicd-templates/.github/workflows/snyk-gha-cli-template.yml@main  # Specify repo and branch
     with:
-      flag_code: "--report"
+      flag_code: "--severity-threshold=high"
     secrets:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
