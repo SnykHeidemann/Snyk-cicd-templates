@@ -4,8 +4,8 @@ on: workflow_dispatch
 
 jobs:
   calling-workflow:
-    uses: hung-snyk/Snyk-cicd-templates/.github/workflows/snyk-gha-cli-template.yml@main  # Specify repo and branch
+    uses: SnykHeidemann/Snyk-cicd-templates/.github/workflows/snyk-gha-cli-template.yml@main  # Specify repo and branch
     with:
-      flag: "--all-projects"
+      flag_code: "--report"
     secrets:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
